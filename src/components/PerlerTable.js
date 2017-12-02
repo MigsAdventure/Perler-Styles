@@ -3,12 +3,12 @@ import { perler_cards } from '../data/perler_cards';
 
 export default function PerlerTable () {
   return(
-    <div class="cards-table">
+    <div className="cards-table">
       {
         perler_cards.map((card, i) => {
           return (
-            <div class="card">
-              <img src={card.url} alt=""/>
+            <div className="card" key={i}>
+              <a className="card-image" href={card.url} style={{"backgroundImage": `url(${card.url})`}}></a>
             </div>
           )
         })
