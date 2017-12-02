@@ -1,0 +1,14 @@
+@import '../../_partials/_mixins';
+
+#Home {
+  .cards-wrapper {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    .card {
+      margin: auto;
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
