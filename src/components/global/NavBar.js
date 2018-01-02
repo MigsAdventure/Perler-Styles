@@ -28,12 +28,18 @@ export default class  NavBar extends Component {
 
     const renderNavBar = (
       <div className={`NavBar`}>
-        <div className={`nav-wrapper ${nav_visible}`}>
+        <div className={`inner-navbar ${nav_visible}`}>
           <ul className="nav-items">
-            {/* map through all nav items here */}
             {
+              // map through all nav items here
               Object.keys(nav_items).map((item, i) => {
-                return   <li key={i} onClick={this.NavToggle} className="nav-item"><Link to={`/${item}`}>{nav_items[item]}</Link></li>
+                // need session here to determine if user is logged in or out
+                let session = false;
+
+                return session && item === "login" || !session && item === "logout" ?
+                null
+                :
+                <li key={i} onClick={this.NavToggle} className={`nav-item nav-${item}`}><Link to={`/${item}`}>{nav_items[item]}</Link></li>
               })
             }
           </ul>
@@ -45,7 +51,7 @@ export default class  NavBar extends Component {
     );
 
     return (
-    renderNavBar
+      renderNavBar
     );
   }
 };
