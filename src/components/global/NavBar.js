@@ -19,6 +19,7 @@ export default class  NavBar extends Component {
   }
 
   render() {
+    const { nav_items } = this.props;
     const { nav_open } = this.state;
     const nav_icon = nav_open ?
     <i className="fa fa-times" aria-hidden="true"></i> : <i className="fa fa-bars" aria-hidden="true"></i>;
@@ -29,9 +30,12 @@ export default class  NavBar extends Component {
       <div className={`NavBar`}>
         <div className={`nav-wrapper ${nav_visible}`}>
           <ul className="nav-items">
-            <li onClick={this.NavToggle} className="nav-item"><Link to="/home">Home</Link></li>
-            <li onClick={this.NavToggle} className="nav-item"><Link to="/new-page">New Page</Link></li>
-            <li onClick={this.NavToggle} className="nav-item"><Link to="/about">About</Link></li>
+            {/* map through all nav items here */}
+            {
+              Object.keys(nav_items).map((item, i) => {
+                return   <li key={i} onClick={this.NavToggle} className="nav-item"><Link to={`/${item}`}>{nav_items[item]}</Link></li>
+              })
+            }
           </ul>
         </div>
         <div className="hamburger" onClick={this.NavToggle}>
@@ -39,10 +43,9 @@ export default class  NavBar extends Component {
         </div>
       </div>
     );
-    
+
     return (
     renderNavBar
     );
   }
-
 };
