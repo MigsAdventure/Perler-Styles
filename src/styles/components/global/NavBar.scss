@@ -50,9 +50,11 @@
           text-decoration: none;
           color: whitesmoke;
         }
-        // float right the login/logout toggle
-        &:last-child {
-          float: right;
+        @media(min-width: $small-desktop-width) {
+          // float right the login/logout toggle
+          &:last-child {
+            float: right;
+          }
         }
       }
     }

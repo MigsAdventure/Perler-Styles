@@ -5,6 +5,7 @@ import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 import App from './App';
 import Home from '../containers/Home';
 import MyPerlers from '../containers/MyPerlers';
+import Authenticate from '../containers/Authenticate';
 
 
 export default function ReactRouter() {
@@ -14,6 +15,7 @@ export default function ReactRouter() {
         <IndexRedirect to="/home" />
         <Route path="/home" component={Home} />
         <Route path="/my-perlers" component={MyPerlers} />
+        <Route path="/authenticate" component={Authenticate} />
       </Route>
     </Router>
   );

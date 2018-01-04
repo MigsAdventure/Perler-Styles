@@ -36,10 +36,10 @@ export default class  NavBar extends Component {
                 // need session here to determine if user is logged in or out
                 let session = false;
 
-                return session && item === "login" || !session && item === "logout" ?
+                return ((session && item === "login") || (!session && item === "logout") ?
                 null
                 :
-                <li key={i} onClick={this.NavToggle} className={`nav-item nav-${item}`}><Link to={`/${item}`}>{nav_items[item]}</Link></li>
+                <li key={i} onClick={this.NavToggle} className={`nav-item nav-${item}`}><Link to={`/${item}`}>{nav_items[item]}</Link></li>)
               })
             }
           </ul>

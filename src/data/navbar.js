@@ -4,6 +4,7 @@ module.exports = {
     "home": "Home",
     "my-perlers": "My Perlers",
     "login": "Login",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "sign-up": "Sign Up"
   }
 };
