@@ -1,0 +1,2 @@
+export const SET_INITIAL_STATE = 'FETCH_INITIAL_STATE';
+export const FETCH_USER = 'FETCH_USER';
