@@ -9,13 +9,20 @@ export default class  NavBar extends Component {
     this.NavToggle = this.NavToggle.bind(this);
 
     this.state = {
-      nav_open: false
+      nav_open: false,
+      logged_in: false
     }
   }
 
   NavToggle() {
     this.setState({
       nav_open: !this.state.nav_open
+    });
+  }
+
+  getLoginDetails() {
+    this.setState({
+      logged_in: this.state.logged_in
     });
   }
 
@@ -34,12 +41,10 @@ export default class  NavBar extends Component {
             {
               // map through all nav items here
               Object.keys(nav_items).map((item, i) => {
-                // need session here to determine if user is logged in or out
-
-                return [<li key={i} onClick={this.NavToggle} className={`nav-item nav-${item}`}><Link to={`/${item}`}>{nav_items[item]}</Link></li>,
-                <AuthBtns />]
+                return <li key={i} onClick={this.NavToggle} className={`nav-item nav-${item}`}><Link to={`/${item}`}>{nav_items[item]}</Link></li>
               })
             }
+              <AuthBtns onClick={this.NavToggle} loggedIn={this.state.logged_in} getLoginDetailsCB={this.getLoginDetails}/>
           </ul>
         </div>
         <div className="hamburger" onClick={this.NavToggle}>

@@ -3,41 +3,42 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 
 
-export default class AuthBtns extends Component {
-  constructor() {
-    super();
-    this.googleResponse = this.googleResponse.bind(this);
-    this.state = {
-      loggedIn: false
-    }
-  }
+export default function AuthBtns(props) {
 
-  googleResponse = (response) => {
+  const googleResponse = (response) => {
     console.log(response);
   }
 
-  render() {
-    const { loggedIn } = this.state;
-    const googleLogOutBtn = (
-      <GoogleLogout
-        buttonText="Logout"
-        onLogoutSuccess={this.googleResponse}
-        >
-        </GoogleLogout>);
-        const googleLogInBtn = (
-          <GoogleLogin
-            clientId="377979995790-d9gac7mmvbaii11sdph9fkkptnrmqcmn.apps.googleusercontent.com"
-            buttonText="Login"
-            onSuccess={this.googleResponse}
-            onFailure={this.googleResponse}
-          />);
+  const { loggedIn } = props;
 
-          let renderBtn = googleLogOutBtn;
+  let btn_state = 'logout';
+  const googleLogOutBtn = (
+    <GoogleLogout
+      buttonText="Log Out"
+      onLogoutSuccess={googleResponse}
+      >
+      </GoogleLogout>);
 
-          if (!loggedIn) {
-            renderBtn = googleLogInBtn;
-          }
+      const googleLogInBtn = (
+        <GoogleLogin
+          clientId="377979995790-d9gac7mmvbaii11sdph9fkkptnrmqcmn.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={googleResponse}
+          onFailure={googleResponse}
+          isSignedIn={true}
+        />);
 
-          return (renderBtn);
+        let renderBtn = googleLogInBtn;
+
+        if (loggedIn) {
+          btn_state = "login";
+          renderBtn = googleLogOutBtn;
         }
+console.log(loggedIn);
+        return (
+          <li className={`nav-item nav-${btn_state}`}>
+            {renderBtn}
+          </li>
+        );
+
       }
