@@ -6,6 +6,7 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-google-login": "^3.0.10",
     "react-router": "3.0.0"
   },
   "devDependencies": {
@@ -72,7 +73,7 @@
       "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
     ],
     "testEnvironment": "node",
-    "testURL": "http://localhost",
+    "testURL": "http://perler.migsadventure.com",
     "transform": {
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
