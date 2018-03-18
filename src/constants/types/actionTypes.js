@@ -1,2 +1,9 @@
+// GLOBAL
 export const SET_INITIAL_STATE = 'FETCH_INITIAL_STATE';
+
+
+// USER
 export const FETCH_USER = 'FETCH_USER';
+
+
+//ERRORS

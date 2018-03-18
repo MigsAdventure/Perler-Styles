@@ -11,7 +11,7 @@ export default function (state = initialState.user, action) {
     case SET_INITIAL_STATE: {
       return { ...state, "loggedIn": false };
     }
-    case FETCH_USER: {
+    case FETCH_USER_CREDENTIALS: {
       return { ...state, "user": payload };
     }
     default:
