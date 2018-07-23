@@ -1,9 +1,6 @@
-import '../../_styles/components/Home/Home.css';
+import '../../_styles/components/home/Home.css';
 import React from 'react';
 import PerlerTable from '../PerlerTable';
-
-import SocialItems from '../global/SocialItems.js';
-
 
 export default function Home() {
   return(
