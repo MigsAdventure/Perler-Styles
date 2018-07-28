@@ -7,6 +7,7 @@ export default class  NavBar extends Component {
   constructor() {
     super();
     this.NavToggle = this.NavToggle.bind(this);
+    this.getLoginDetails = this.getLoginDetails.bind(this);
 
     this.state = {
       nav_open: false,
@@ -20,10 +21,10 @@ export default class  NavBar extends Component {
     });
   }
 
-  getLoginDetails() {
-    this.setState({
-      logged_in: this.state.logged_in
-    });
+  getLoginDetails(res) {
+      this.setState({
+          logged_in: res && true
+      });
   }
 
   render() {

@@ -4,15 +4,15 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 
 export default function AuthBtns(props) {
+  let btn_state = 'login';
 
   const googleResponse = (response) => {
-    console.log(response);
-  }
+      props.getLoginDetailsCB(response);
+  };
+
 
   const { loggedIn } = props;
-
-  let btn_state = 'logout';
-  const googleLogOutBtn = (
+    const googleLogOutBtn = (
     <GoogleLogout
       buttonText="Log Out"
       onLogoutSuccess={googleResponse}
@@ -31,7 +31,7 @@ export default function AuthBtns(props) {
         let renderBtn = googleLogInBtn;
 
         if (loggedIn) {
-          btn_state = "login";
+          btn_state = "log-out";
           renderBtn = googleLogOutBtn;
         }
 console.log(loggedIn);
