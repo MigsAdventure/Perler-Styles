@@ -34,7 +34,6 @@ export default function AuthBtns(props) {
           btn_state = "log-out";
           renderBtn = googleLogOutBtn;
         }
-console.log(loggedIn);
         return (
           <li className={`nav-item nav-${btn_state}`}>
             {renderBtn}
