@@ -1,6 +1,6 @@
 import '../../_styles/components/home/Home.css';
 import React from 'react';
-import PerlerTable from '../PerlerTable';
+import PerlerTable from '../global/PerlerTable';
 
 export default function Home() {
   return(

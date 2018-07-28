@@ -1,5 +1,5 @@
 import React from 'react';
-import { perler_cards } from '../data/perler_cards';
+import { perler_cards } from '../../data/perler_cards';
 
 export default function PerlerTable () {
   return(

@@ -3,10 +3,8 @@ export default {
     general_error: '',
     is_loading: false
   },
-  login: {
-    loggedIn: false
-  },
   user: {
-    user_name: 'GUEST'
+      loggedIn: false,
+      user_name: 'GUEST'
   }
 };

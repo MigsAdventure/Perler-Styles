@@ -1,9 +1,11 @@
 import '../../_styles/components/global/NavBar.css';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import AuthBtns from './AuthBtns';
+import { fetchGoogleUserDetails } from '../../actions/loginActions';
 
-export default class  NavBar extends Component {
+class NavBar extends Component {
   constructor() {
     super();
     this.NavToggle = this.NavToggle.bind(this);
@@ -22,6 +24,7 @@ export default class  NavBar extends Component {
   }
 
   getLoginDetails(res) {
+      this.props.fetchGoogleUserDetails(res);
       this.setState({
           logged_in: res && true
       });
@@ -59,3 +62,14 @@ export default class  NavBar extends Component {
     );
   }
 };
+
+
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchGoogleUserDetails: (res) => {
+            dispatch(fetchGoogleUserDetails(res));
+        },
+    };
+};
+
+export default connect(null, mapDispatchToProps)(NavBar)

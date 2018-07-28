@@ -2,7 +2,7 @@ import initialState from '../constants/initialState';
 
 import {
   SET_INITIAL_STATE,
-  FETCH_USER
+    FETCH_USER
 } from '../constants/types/actionTypes';
 
 export default function (state = initialState.user, action) {
@@ -11,8 +11,8 @@ export default function (state = initialState.user, action) {
     case SET_INITIAL_STATE: {
       return { ...state, "loggedIn": false };
     }
-    case FETCH_USER_CREDENTIALS: {
-      return { ...state, "user": payload };
+    case FETCH_USER: {
+      return { ...state, "user_name": payload };
     }
     default:
       return state;
