@@ -19,6 +19,7 @@ const googleUserDetails = (user_details) => {
 };
 
 export function fetchGoogleUserDetails(user_details) {
+  console.log('user_details', user_details);
   return dispatch => {
     dispatch(googleUserDetails(user_details));
   }
