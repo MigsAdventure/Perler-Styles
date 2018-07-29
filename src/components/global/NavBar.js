@@ -31,7 +31,7 @@ class NavBar extends Component {
   }
 
   render() {
-    const { nav_items } = this.props;
+    const { nav_items, user_name } = this.props;
     const { nav_open } = this.state;
     const nav_icon = nav_open ?
     <i className="fa fa-times" aria-hidden="true"></i> : <i className="fa fa-bars" aria-hidden="true"></i>;
@@ -54,6 +54,7 @@ class NavBar extends Component {
         <div className="hamburger" onClick={this.NavToggle}>
           {nav_icon}
         </div>
+          {/*<div><h5>Hi, {user_name}</h5></div>*/}
       </div>
     );
 
@@ -63,6 +64,11 @@ class NavBar extends Component {
   }
 };
 
+const mapStateToProps = state => {
+    return {
+        user_name: state.user.user_name
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -72,4 +78,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(null, mapDispatchToProps)(NavBar)
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
