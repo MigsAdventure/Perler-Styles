@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
-import './button.scss';
+import '../../../_styles/components/global/button.css';
 
 const Button = (props) => {
   const { text, type, large, isExternal, url, isActive, callback } = props;
