@@ -12,7 +12,7 @@ export default function (state = initialState.user, action) {
       return { ...state, "loggedIn": false };
     }
     case FETCH_GOOGLE_USER_DETAILS: {
-      return { ...state, "user_name": payload || 'GUEST' };
+      return { ...state, "user_info": payload};
     }
     default:
       return state;

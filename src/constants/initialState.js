@@ -5,6 +5,6 @@ export default {
   },
   user: {
       loggedIn: false,
-      user_name: 'GUEST'
+      user_info: {givenName: 'GUEST'}
   }
 };

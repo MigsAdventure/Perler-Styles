@@ -14,7 +14,7 @@ import {
 const googleUserDetails = (user_details) => {
   return {
     type: FETCH_GOOGLE_USER_DETAILS,
-    payload: (user_details && user_details.profileObj.givenName) || 'GUEST'
+    payload: (user_details && user_details.profileObj)
   };
 };
 
