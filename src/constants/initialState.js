@@ -6,5 +6,8 @@ export default {
   user: {
       loggedIn: false,
       user_info: {givenName: 'GUEST'}
+  },
+  card: {
+      cards: []
   }
 };

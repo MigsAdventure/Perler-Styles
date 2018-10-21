@@ -2,7 +2,6 @@ import {
   FETCH_GOOGLE_USER_DETAILS
 } from '../constants/types/actionTypes';
 
-
 // const loginError = (error) => {
 //   return {
 //     type: 'FETCH_LOGIN_ERROR',
@@ -19,8 +18,10 @@ const googleUserDetails = (user_details) => {
 };
 
 export function fetchGoogleUserDetails(user_details) {
-  console.log('user_details', user_details);
   return dispatch => {
     dispatch(googleUserDetails(user_details));
   }
 };
+
+
+

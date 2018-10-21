@@ -54,7 +54,7 @@ class NavBar extends Component {
         <div className="hamburger" onClick={this.NavToggle}>
           {nav_icon}
         </div>
-          <div><h5>Hi, {current_user.givenName}</h5></div>
+          <div><h5>Hi, {(current_user && current_user.givenName) || 'GUEST'}</h5></div>
       </div>
     );
 
