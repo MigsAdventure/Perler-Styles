@@ -29,4 +29,9 @@ div.btn.no-url:not(.text) {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=blueviolet, endColorstr=green,GradientType=0 );
     border-color: blueviolet;
   }
+  &.disabled {
+    opacity: 0.5;
+    cursor: none;
+    pointer-events: none;
+  }
 }

@@ -3,6 +3,7 @@
 .NavBar {
   font-size: 26px;
   position: relative;
+  z-index: 100;
   @media(min-width: $small-desktop-width) {
     height: 55px;
     display: block;

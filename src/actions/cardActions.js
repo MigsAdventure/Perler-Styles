@@ -6,10 +6,10 @@ import {
 
 import { API } from "../constants/config";
 
-const get_all_cards = (cards) => {
+const get_all_cards = (payload) => {
     return {
         type: GET_ALL_CARDS,
-        payload: cards
+        payload: payload.data
     };
 };
 
@@ -17,29 +17,34 @@ export function getAllCards() {
     return dispatch => {
         API.get('/card')
             .then(res => {
-                console.log('res: ', res);
                 dispatch(get_all_cards(res));
             })
             .catch(err => {
                 console.log(err);
                 // need error handling here
             });
-
     }
-};
+}
 
 const add_user_card = (user_details) => {
     return {
         type: ADD_CARD_TO_USER,
-        payload: (user_details)
+        payload: (user_details.data)
     };
 };
 
-export function addCard(user) {
+export function addCard(card_id, user_details) {
     return dispatch => {
-        dispatch(add_user_card(user));
+        API.post(`/card/${card_id}`, user_details)
+            .then(res => {
+                dispatch(add_user_card(res));
+            })
+            .catch(err => {
+                console.log(err);
+                // need error handling here
+            });
     }
-};
+}
 
 const remove_user_card = (user_details) => {
     return {

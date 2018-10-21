@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { perler_cards } from '../../data/perler_cards';
+// import { perler_cards } from '../../data/perler_cards';
 import Button from './Button';
 import {connect} from "react-redux";
-import { getAllCards } from "../../actions/cardActions";
+import { getAllCards, addCard } from "../../actions/cardActions";
 
 class PerlerTable extends Component {
   constructor(props) {
@@ -14,23 +14,28 @@ class PerlerTable extends Component {
       this.props.getAllCards();
   }
 
-  addCard() {
+  addCard(card) {
+      const { current_user, addCard } = this.props;
+      if (card && card.user) {
+          return;
+      }
       // handle endpoint to check for user
+      addCard(card._id, {'user_name':current_user.givenName, 'email': current_user.email});
   }
 
 
   render() {
-    const { current_user } = this.props;
-    console.log(current_user);
+    const { current_user, all_cards } = this.props;
+    console.log('CARDS!!!: ', all_cards);
     return(
       <div className="cards-table">
         {
-          perler_cards.map((card, i) => {
+          all_cards.map((card, i) => {
             return (
               <div className="card" key={i}>
                 <a className="card-image" href={card.url} style={{"backgroundImage": `url(${card.url})`}}></a>
                   {
-                  current_user && current_user.googleId && <Button text={'Add'} callback={this.addCard}/>
+                  current_user && current_user.googleId && <Button type={card && card.user && 'disabled'} text={(card && card.user) || 'Add Perler'} callback={() => this.addCard(card)}/>
                   }
               </div>
             )
@@ -43,7 +48,8 @@ class PerlerTable extends Component {
 
 const mapStateToProps = state => {
     return {
-        current_user: state.user.user_info
+        current_user: state.user.user_info,
+        all_cards: state.card.cards
     };
 };
 
@@ -51,6 +57,9 @@ const mapDispatchToProps = dispatch => {
     return {
         getAllCards: (res) => {
             dispatch(getAllCards(res));
+        },
+        addCard: (id, user) => {
+            dispatch(addCard(id, user));
         },
     };
 };
