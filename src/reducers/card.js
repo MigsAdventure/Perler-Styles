@@ -2,7 +2,8 @@ import initialState from '../constants/initialState';
 
 import {
     SET_INITIAL_STATE,
-    GET_ALL_CARDS
+    GET_ALL_CARDS,
+    ADD_CARD_TO_USER
 } from '../constants/types/actionTypes';
 
 export default function (state = initialState.card, action) {
@@ -13,6 +14,15 @@ export default function (state = initialState.card, action) {
         }
         case GET_ALL_CARDS: {
             return { ...state, "cards": payload};
+        }
+        case ADD_CARD_TO_USER: {
+            return { ...state, "cards": state.cards.map( (card) => {
+                    if(card._id === payload._id) {
+                        console.log('returning: ', payload);
+                        return payload;
+                    }
+                    return card;
+                })};
         }
         default:
             return state;

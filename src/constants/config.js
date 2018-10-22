@@ -9,10 +9,7 @@ if(ENV !== 'development') {
 
 
 const API = axios.create({
-    baseURL: API_URL,
-    headers: {
-        "content-type": 'application/json'
-    }
+    baseURL: API_URL
 });
 
 export {
