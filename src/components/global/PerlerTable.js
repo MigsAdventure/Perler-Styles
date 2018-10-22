@@ -11,6 +11,7 @@ class PerlerTable extends Component {
   }
 
   componentDidMount() {
+      console.log('mounted');
       this.props.getAllCards();
   }
 
