@@ -11,7 +11,7 @@ class PerlerTable extends Component {
   }
 
   componentDidMount() {
-      console.log('mounted');
+      console.log('component mounted');
       this.props.getAllCards();
   }
 
@@ -20,7 +20,6 @@ class PerlerTable extends Component {
       if (card && card.user) {
           return;
       }
-      console.log('adding card');
       // handle endpoint to check for user
       addCard(card._id, {"user_name":current_user.givenName, "email": current_user.email});
   }

@@ -31,6 +31,7 @@ class NavBar extends Component {
   }
 
   render() {
+      console.log('nav render');
     const { nav_items, current_user } = this.props;
     const { nav_open } = this.state;
     const nav_icon = nav_open ?

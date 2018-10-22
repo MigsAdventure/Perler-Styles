@@ -18,7 +18,6 @@ export default function (state = initialState.card, action) {
         case ADD_CARD_TO_USER: {
             return { ...state, "cards": state.cards.map( (card) => {
                     if(card._id === payload._id) {
-                        console.log('returning: ', payload);
                         return payload;
                     }
                     return card;
