@@ -19,13 +19,13 @@ class PerlerTable extends Component {
       if (card && card.user) {
           return;
       }
+      console.log('adding card');
       // handle endpoint to check for user
       addCard(card._id, {"user_name":current_user.givenName, "email": current_user.email});
   }
 
   render() {
     const { current_user, all_cards } = this.props;
-    console.log('CARDS DAMMIT: ', all_cards);
     return(
       <div className="cards-table">
         {
