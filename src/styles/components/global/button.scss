@@ -4,12 +4,10 @@ a.btn, div.btn > a {
   padding: 15px 40px;
   display: inline-block;
   color: white;
-  background: blue;
   cursor: pointer;
 }
 div.btn.no-url:not(.text) {
   padding: 15px 40px;
-  background: blue;
 }
 .btn {
   border: 1px solid white;
@@ -20,7 +18,7 @@ div.btn.no-url:not(.text) {
   cursor: pointer;
   position: relative;
   z-index: 2;
-  background: blue;
+  background: dodgerblue;
   &:hover, &.active {
     background: blueviolet;
     background: -moz-linear-gradient(top, blueviolet 0%, green 100%);
@@ -33,5 +31,12 @@ div.btn.no-url:not(.text) {
     opacity: 0.5;
     cursor: none;
     pointer-events: none;
+  }
+  &.remove-btn {
+    color: ghostwhite;
+    background: red;
+    &:hover, &.active {
+      background: orangered;
+    }
   }
 }

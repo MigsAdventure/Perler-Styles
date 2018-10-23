@@ -49,12 +49,19 @@ export function addCard(card_id, user_details) {
 const remove_user_card = (user_details) => {
     return {
         type: REMOVE_CARD_FROM_USER,
-        payload: (user_details)
+        payload: (user_details.data)
     };
 };
 
-export function removeCard(user) {
+export function removeCard(card_id, user_details) {
     return dispatch => {
-        dispatch(add_user_card(user));
+        API.put(`/card/${card_id}`, user_details)
+            .then(res => {
+                dispatch(remove_user_card(res));
+            })
+            .catch(err => {
+                console.log(err);
+                // need error handling here
+            });
     }
 };
